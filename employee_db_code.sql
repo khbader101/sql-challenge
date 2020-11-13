@@ -54,3 +54,13 @@ inner join dept_emp de on (e.emp_no=de.emp_no)
 inner join departments d on (de.dept_no=d.dept_no)
 where d.dept_name = 'Sales'
 order by last_name asc
+
+--List all employees in the Sales and Development departments, including their employee number, last name, first name, and department name.
+--decided to sort it by last_name rather than dept_name so that you can easily see that both departments are included when grading.
+select e.emp_no, e.last_name, e.first_name, d.dept_name from employees e
+inner join dept_emp de on (e.emp_no=de.emp_no)
+inner join departments d on (de.dept_no=d.dept_no)
+where d.dept_name in ('Sales', 'Development')
+order by last_name asc
+
+
