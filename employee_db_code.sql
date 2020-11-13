@@ -36,6 +36,16 @@ select d.dept_no, d.dept_name, e.emp_no, e.last_name, e.first_name from employee
 inner join dept_manager m on (e.emp_no=m.emp_no)
 inner join departments d on (m.dept_no=d.dept_no)
 
+--List the department of each employee with the following information: employee number, last name, first name, and department name.
+--some of the employees are listed in two different departments so I put the list in order of emp_no to easily see who is listed twice.
+select e.emp_no, e.last_name, e.first_name, d.dept_name from employees e
+inner join dept_emp de on (e.emp_no=de.emp_no)
+inner join departments d on (de.dept_no=d.dept_no)
+order by emp_no
 
+--List first name, last name, and sex for employees whose first name is "Hercules" and last names begin with "B."
+select first_name, last_name, sex
+from employees
+where first_name = 'Hercules' and last_name like 'B%'
 
 
